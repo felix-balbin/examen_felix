@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="CSS/style.css"> 
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+		<title>Restaurant</title>
+	</head>
+	<body>
+		<section>
+			<h3>Galeria d'imatges</h3>
+			<div class="gallery">
+				<div class="image-container">
+					<img src="./IMAGES/plat1.jpg" alt="Imatge plat de verdures">
+				</div>
+				<div class="image-container">
+					<img src="./IMAGES/plat2_1.jpg" alt="Imatge plat despaguettis">
+				</div>
+				<div class="image-container">
+					<img src="./IMAGES/plat3_3.jpg" alt="Imatge plat de salmó amb verdures">
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Imatge responsiva</h2>
+
+			<picture>
+				<source media="(min-width:768)" srcset="./IMAGES/img_responsive_768" alt="Imatge taula amb copes">
+				<source media="(min-width:640)" srcset="./IMAGES/img_responsive_640" alt="Imatge taula amb copes">
+				<img src="./IMAGES/img_responsive_1024.png" alt="Imatge taula amb copes">
+			</picture>
+		</section>
+
+		<section>
+			<h2>CSS Animation</h2>
+
+			<div class="css_div">
+				<p>Capa</p>
+			</div>
+		</section>
+
+		<section>
+			<h2>Video</h2>
+			<div class="container_video">
+				<video id="videos" muted autoplay>
+					<source src="./VIDEOS/video.mp4" type="video/mp4">
+				</video>
+			</div>
+
+			<div class="botones">
+				<span id="botonPlay" onclick="funcionPlay()" class="material-symbols-outlined">
+					play_arrow
+				</span>
+				<span id="botonPause" onclick="funcionPause()" class="material-symbols-outlined">
+					pause
+				</span>
+			</div>
+		</section>
+
+		<script>
+			var video=document.getElementById("videos");
+			var bplay=document.getElementById("botonPlay");
+			var bpause=document.getElementById("botonPause");
+			function funcionPlay(){
+				if(video.paused){
+					video.play();
+				}else{
+					alert("El video s'està reproduint");
+				}
+			}
+
+			function funcionPause(){
+				if(!video.paused){
+					video.pause();
+				}else{
+					alert("El video està parat");
+				}
+			}
+
+			var pasaVideo=new IntersectionObserver(function(entries){
+                entries.forEach(entry=>{
+                    if(entry.isIntersecting){
+                        video.pause();
+                        dalePlay.innerHTML="pause_circle";
+                        video.muted=true;
+                    }else{
+                        video.play();
+                    }
+                });
+            },{
+                threshold:0.5
+            });
+            pasaVideo.observe(video);
+
+		</script>
+
+
+	</body>
+</html>

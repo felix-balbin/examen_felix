@@ -1,0 +1,52 @@
+.gallery{
+    display: flex;
+    gap:20px;
+}
+
+.image-container{
+    width: auto;
+}
+
+.image-container img{
+    width: 200;
+    height: 133px;
+}
+
+/*CSS ANIMATION*/
+.css_div{
+	width:50px;
+	height: 50px;
+	text-align: center;
+	line-height: 45px;
+	background-color:orange;
+    animation-name: moveCuadrat;
+    animation-duration: 10s;
+}
+
+@keyframes moveCuadrat{
+    0%{
+        background-color:orange;
+    }
+    30%{
+        background-color:yellow;
+        rotate: 90deg;
+        height:60px;
+        
+    }
+    50%{
+        background-color:blue;
+        rotate: 180deg;
+        height: 80px;
+        width: 50px;
+        
+    }
+    70%{
+        background-color:rgb(0, 255, 0);
+        height: 80px;
+        rotate: 180deg;
+        width: 100px;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
